@@ -8,7 +8,7 @@ import (
 	"bytes"
 	"crypto/ecdsa"
 	"crypto/rsa"
-	"github.com/cetcxinlian/crypto/x509"
+	"github.com/cume-go/cryptogm/x509"
 	"encoding/base64"
 	"encoding/binary"
 	"encoding/pem"
