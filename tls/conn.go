@@ -18,7 +18,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/cetcxinlian/cryptogm/x509"
+	"github.com/cume-go/cryptogm/x509"
 )
 
 // A Conn represents a secured connection.

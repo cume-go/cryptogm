@@ -11,7 +11,7 @@ import (
 	"crypto/subtle"
 	"errors"
 	"fmt"
-	"github.com/cetcxinlian/cryptogm/x509"
+	"github.com/cume-go/cryptogm/x509"
 	"io"
 	"sync/atomic"
 )
