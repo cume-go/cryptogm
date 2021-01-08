@@ -15,6 +15,7 @@ import (
 	"crypto/dsa"
 	"crypto/ecdsa"
 	"crypto/elliptic"
+	"crypto/rand"
 	"crypto/rsa"
 	_ "crypto/sha1"
 	_ "crypto/sha256"
@@ -2433,4 +2434,17 @@ func Pem2Cert(b []byte) (*Certificate, error) {
 		return nil, fmt.Errorf("credentials: parse cert error : %v", err)
 	}
 	return cert, nil
+}
+
+
+func CreateCertificateToMem(template, parent *Certificate, pubKey *sm2.PublicKey, privKey *sm2.PrivateKey) ([]byte, error) {
+	der, err := CreateCertificate(rand.Reader, template, parent, pubKey, privKey)
+	if err != nil {
+		return nil, err
+	}
+	block := &pem.Block{
+		Type:  "CERTIFICATE",
+		Bytes: der,
+	}
+	return pem.EncodeToMemory(block), nil
 }
